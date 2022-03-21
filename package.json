@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "axios": "^0.26.0",
+    "telegraf": "^4.7.0",
+    "wallet-address-validator": "^0.2.4"
+  },
+  "name": "confirmationblockcypherproject",
+  "version": "1.0.0",
+  "description": "A telegram bot on crypto",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "prod": "NODE_ENV=production node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
