@@ -29,6 +29,16 @@ bot.command('checkbtcstatus', (ctx) => {
   bot.on('text', async (textCtx) => {
     address = textCtx.update.message.text;
 
+    const firstName = textCtx.update.message.from.first_name;
+    const lastName = textCtx.update.message.from.last_name;
+    let replyName = '';
+
+    if (firstName || lastName) {
+      replyName = `${firstName ? firstName : ''}${
+        lastName ? ` ${lastName}` : ''
+      }`;
+    }
+
     const valid = WAValidator.validate(`${address}`, `${crypto}`);
     if (!valid)
       return textCtx.reply(
@@ -44,7 +54,7 @@ bot.command('checkbtcstatus', (ctx) => {
 
     // currentUser = textCtx.update;
     textCtx.reply(
-      botView.replyTrxStatusText(ctx, unconfirmedTRX, confirmedTrxs),
+      botView.replyTrxStatusText(replyName, unconfirmedTRX, confirmedTrxs),
       botView.replyTrxStatusInline()
     );
 

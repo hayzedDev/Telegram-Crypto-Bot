@@ -8,11 +8,7 @@ class BotView {
   checkBtcStatus() {}
 
   replyTrxStatusText(ctx, unconfirmedTRX, confirmedTrx) {
-    const firstName = ctx.update.message.from.first_name;
-    const lastName = ctx.update.message.from.last_name;
-    return `Hi ${firstName ? firstName : ''}${
-      lastName ? ` ${lastName}` : ''
-    }, you have ${unconfirmedTRX} unconfirmed coin!\n\nYou also have ${confirmedTrx} confirmed transaction(s) in the last 24 hours. `;
+    return `Hi ${ctx}, you have ${unconfirmedTRX} unconfirmed coin!\n\nYou also have ${confirmedTrx} confirmed transaction(s) in the last 24 hours. `;
     // return `This wallet address has ${unconfirmed} unconfimed transaction${
     //   unconfirmed <= 1 ? "" : "s"
     // } and ${confirmed} confirmed transaction${
