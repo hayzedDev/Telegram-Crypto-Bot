@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: `./config.env` });
+
 const { Telegraf } = require('telegraf');
 const WAValidator = require('wallet-address-validator');
 
@@ -10,12 +13,14 @@ const {
   currentUserAndAddress,
   confirmedTrx,
 } = require('./model/model');
-const bot = new Telegraf('5276618570:AAGvEkBETVxuzmV4qJPTgHJKk1MgJE-rGFc');
+let bot = new Telegraf(process.env.BOT_TOKEN);
 
 if (process.env.NODE_ENV === 'production') {
   const API_TOKEN = process.env.API_TOKEN || '';
   const PORT = process.env.PORT || 3000;
   const URL = process.env.URL || 'https://your-heroku-app.herokuapp.com';
+
+  bot = new Telegraf(API_TOKEN);
 
   bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
   bot.startWebhook(`/bot${API_TOKEN}`, null, PORT);

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
     "telegraf": "^4.7.0",
     "wallet-address-validator": "^0.2.4"
   },
@@ -12,6 +13,6 @@
     "start": "nodemon index.js",
     "prod": "NODE_ENV=production node index.js"
   },
-  "author": "",
+  "author": "Hayzed",
   "license": "ISC"
 }
